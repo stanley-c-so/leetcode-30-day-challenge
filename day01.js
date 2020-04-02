@@ -39,7 +39,7 @@ function solution_2 (nums) {
   return currentNum;
 }
 
-// one line - reduce is handy, and you don't even need a starting value since the array is guaranteed to be non-empty
+// one liner - reduce is handy, and you don't even need a starting value since the array is guaranteed to be non-empty
 
 function solution_3(N){return N.reduce((c,n)=>c^n)}
 
