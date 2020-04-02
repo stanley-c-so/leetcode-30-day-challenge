@@ -14,7 +14,7 @@
 // 62 + 82 = 100
 // 12 + 02 + 02 = 1
 
-const isHappy = solution_2;
+const isHappy = solution_3;
 
 function solution_1 (n) {
   function sumSquaresOfDigits (n) {
@@ -37,6 +37,10 @@ function solution_1 (n) {
 // one-liner - i cut out the `processedN` and calculate `F(n)` twice to make the code shorter
 
 function solution_2(n,F=n=>`${n}`.split('').map(d=>+d).reduce((s,d)=>s+d**2,0)){const s=new Set([n]);while(F(n)!==1){n=F(n);if(s.has(n)){return !8}s.add(n)}return !0}
+
+// thomas luo's solution:
+
+function solution_3(n,s={}){while(!s[n])s[n]=1,n=`${n}`.split('').reduce((a,e)=>a+e**2,0);return n===1}
 
 // TEST CASES
 
