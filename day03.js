@@ -1,0 +1,47 @@
+// --- Day 3: Maximum Subarray ---
+
+// Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+
+// Example:
+
+// Input: [-2,1,-3,4,-1,2,1,-5,4],
+// Output: 6
+// Explanation: [4,-1,2,1] has the largest sum = 6.
+// Follow up:
+
+// If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
+
+const maxSubArray = solution_2;
+
+// kadane's algorithm
+
+function solution_1 (nums) {
+  let record = currentBest = nums[0];
+  for (let i = 1; i < nums.length; i++) {
+      currentBest = Math.max(currentBest + nums[i], nums[i]);
+      record = Math.max(record, currentBest);
+  }
+  return record;
+}
+
+// one-line - iterate through all nums in the array, but initialize `record` at -Infinity and `currentBest` at 0 so the logic holds for the first element
+
+function solution_2(N,r=-Infinity,c=0){N.forEach(n=>{c=Math.max(c+n,n);r=Math.max(r,c)});return r}
+
+// TEST CASES
+
+const test = require('./_test');
+const testNum = [1];
+let input, expected;
+const func = maxSubArray;
+const sortedFunc = (...args) => func(...args).sort();                   // used when the order of the output does not matter
+const modFunc = (...args) => func(...args) % 1000000007;                // used when the output is very large
+const lowestTest = 0 || 0;
+const highestTest = 0 || Infinity;
+
+// Test case 1
+input = {
+  nums: [-2, 1, -3, 4, -1, 2, 1, -5, 4],
+};
+expected = 6;
+test(func, input, expected, testNum, lowestTest, highestTest);
