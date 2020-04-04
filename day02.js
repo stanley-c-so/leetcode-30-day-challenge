@@ -38,7 +38,7 @@ function solution_1 (n) {
 
 var solution_2=(n,F=n=>`${n}`.split('').map(d=>+d).reduce((s,d)=>s+d**2,0))=>{const s=new Set([n]);while(F(n)!==1){n=F(n);if(s.has(n)){return !8}s.add(n)}return !0}
 
-// thomas luo's solution:
+// thomas luo's solution - instead of checking whether the result of `F(n)` is 1, simply run it until it hits a repeat. THEN check if the repeated value is 1
 
 var solution_3=(n,s={})=>{while(!s[n])s[n]=1,n=`${n}`.split('').reduce((a,e)=>a+e**2,0);return n===1}
 
