@@ -24,7 +24,7 @@ function solution_1 (nums) {
   return record;
 }
 
-// one-line - iterate through all nums in the array, but initialize `record` at -Infinity and `currentBest` at 0 so the logic holds for the first element
+// one-liner - iterate through all nums in the array, but initialize `record` at -Infinity and `currentBest` at 0 so the logic holds for the first element
 
 function solution_2(N,r=-Infinity,c=0){N.forEach(n=>{c=Math.max(c+n,n);r=Math.max(r,c)});return r}
 
