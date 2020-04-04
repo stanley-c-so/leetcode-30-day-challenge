@@ -15,7 +15,7 @@
 // Input: [4,1,2,1,2]
 // Output: 4
 
-const singleNumber = solution_3;
+// ----------
 
 function solution_1 (nums) {
   const set = new Set();
@@ -41,7 +41,9 @@ function solution_2 (nums) {
 
 // one liner - reduce is handy, and you don't even need a starting value since the array is guaranteed to be non-empty
 
-function solution_3(N){return N.reduce((c,n)=>c^n)}
+var solution_3=N=>N.reduce((c,n)=>c^n)
+
+const singleNumber = solution_3;
 
 // TEST CASES
 

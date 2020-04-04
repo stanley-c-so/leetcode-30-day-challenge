@@ -11,7 +11,7 @@
 
 // If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
 
-const maxSubArray = solution_2;
+// ----------
 
 // kadane's algorithm
 
@@ -26,7 +26,13 @@ function solution_1 (nums) {
 
 // one-liner - iterate through all nums in the array, but initialize `record` at -Infinity and `currentBest` at 0 so the logic holds for the first element
 
-function solution_2(N,r=-Infinity,c=0){N.forEach(n=>{c=Math.max(c+n,n);r=Math.max(r,c)});return r}
+var solution_2=(N,r=-Infinity,c=0)=>{N.forEach(n=>{c=Math.max(c+n,n);r=Math.max(r,c)});return r}
+
+// thomas luo's solution - it runs the .forEach first, but since .forEach always evaluates to undefined, the entire || expression will return the right side, which is `r` here
+
+var solution_3=(N,r=-Infinity,c=0)=>N.forEach(n=>{c=n>c+n?n:c+n;r=r>c?r:c})||r
+
+const maxSubArray = solution_3;
 
 // TEST CASES
 
