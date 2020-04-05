@@ -32,7 +32,11 @@ var solution_2=(N,r=-Infinity,c=0)=>{N.forEach(n=>{c=Math.max(c+n,n);r=Math.max(
 
 var solution_3=(N,r=-Infinity,c=0)=>N.forEach(n=>{c=n>c+n?n:c+n;r=r>c?r:c})||r
 
-const maxSubArray = solution_3;
+// my improvement on thomas luo's solution - the return value of the HOF doesn't matter, so i chose .map for brevity. by adding `&&r` it still returns `r` in the end
+
+var solution_4=(N,r=-Infinity,c=0)=>N.map(n=>{c=n>c+n?n:c+n;r=r>c?r:c})&&r
+
+const maxSubArray = solution_4;
 
 // TEST CASES
 
