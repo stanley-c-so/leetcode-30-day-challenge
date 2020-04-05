@@ -51,7 +51,11 @@ var solution_3=(N,z=0)=>N.forEach((n,i)=>n&&([N[z],N[i]]=[N[i],N[z]],z++))
 
 var solution_4=(n,z=0)=>n.map((c,i)=>c?(n[i]=n[z],n[z++]=c):0)
 
-const moveZeroes = solution_4;
+// my improvement on thomas luo's solution - since you don't need to do anything if `c` is not truthy, we can use && instead of a ternary
+
+var solution_5=(n,z=0)=>n.map((c,i)=>c&&(n[i]=n[z],n[z++]=c))
+
+const moveZeroes = solution_2;
 
 // TEST CASES
 
