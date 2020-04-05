@@ -32,11 +32,15 @@ var solution_2=(N,r=-Infinity,c=0)=>{N.forEach(n=>{c=Math.max(c+n,n);r=Math.max(
 
 var solution_3=(N,r=-Infinity,c=0)=>N.forEach(n=>{c=n>c+n?n:c+n;r=r>c?r:c})||r
 
-// my improvement on thomas luo's solution - the return value of the HOF doesn't matter, so i chose .map for brevity. by adding `&&r` it still returns `r` in the end
+// minor improvement on thomas luo's solution - since .forEach returns a falsey value, and we want to return a primitive number, we can use bitwise `|` instead of `||`!
 
-var solution_4=(N,r=-Infinity,c=0)=>N.map(n=>{c=n>c+n?n:c+n;r=r>c?r:c})&&r
+var solution_4=(N,r=-Infinity,c=0)=>N.forEach(n=>{c=n>c+n?n:c+n;r=r>c?r:c})|r
 
-const maxSubArray = solution_4;
+// even better improvement on thomas luo's solution - the return value of the HOF doesn't matter, so i chose .map for brevity. by adding `&&r` it still returns `r` in the end
+
+var solution_5=(N,r=-Infinity,c=0)=>N.map(n=>{c=n>c+n?n:c+n;r=r>c?r:c})&&r
+
+const maxSubArray = solution_5;
 
 // TEST CASES
 
