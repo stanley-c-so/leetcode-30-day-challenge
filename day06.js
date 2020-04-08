@@ -25,9 +25,7 @@ function solution_1 (strs) {
     if (!(sorted in obj)) obj[sorted] = [];
     obj[sorted].push(str);
   }
-  return Object.values(obj)
-    .map(subarray => subarray.sort())       // this sort is just for my testing suite - not needed for leetcode
-  ;
+  return Object.values(obj);
 }
 
 function solution_2 (strs) {
@@ -46,19 +44,21 @@ function solution_2 (strs) {
     if (!(serial in obj)) obj[serial] = [];
     obj[serial].push(str);
   }
-  return Object.values(obj)
-    .map(subarray => subarray.sort())       // this sort is just for my testing suite - not needed for leetcode
-  ;
+  return Object.values(obj);
 }
 
 const groupAnagrams = solution_2;
+
+const specialTest = (...args) => {
+  return groupAnagrams(...args).map(subarray => subarray.sort());
+};
 
 // TEST CASES
 
 const test = require('./_test');
 const testNum = [1];
 let input, expected;
-const func = groupAnagrams;
+const func = specialTest;
 const sortedFunc = (...args) => func(...args).sort();                   // used when the order of the output does not matter
 const modFunc = (...args) => func(...args) % 1000000007;                // used when the output is very large
 const lowestTest = 0 || 0;
