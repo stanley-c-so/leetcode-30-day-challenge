@@ -55,7 +55,7 @@ var solution_4=(n,z=0)=>n.map((c,i)=>c?(n[i]=n[z],n[z++]=c):0)
 
 var solution_5=(n,z=0)=>n.map((c,i)=>c&&(n[i]=n[z],n[z++]=c))
 
-const moveZeroes = solution_2;
+const moveZeroes = solution_5;
 
 // TEST CASES
 

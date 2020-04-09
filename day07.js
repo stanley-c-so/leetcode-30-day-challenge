@@ -58,7 +58,7 @@ var solution_3=(a,s=new Set(a))=>a.reduce((p,e)=>p+(s.has(e+1)?1:0),0)
 
 // looks like map is still the way to go!
 
-var solution_4=(a,s=new Set(a),c=0)=>a.map(n=>s.has(n+1)?c++:0)&&c
+var solution_4=(a,s=new Set(a),c=0)=>a.map(n=>s.has(n+1)?c++:0)|c
 
 const countElements = solution_4;
 

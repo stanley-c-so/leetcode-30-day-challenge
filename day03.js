@@ -40,7 +40,11 @@ var solution_4=(N,r=-Infinity,c=0)=>N.forEach(n=>{c=n>c+n?n:c+n;r=r>c?r:c})|r
 
 var solution_5=(N,r=-Infinity,c=0)=>N.map(n=>{c=n>c+n?n:c+n;r=r>c?r:c})&&r
 
-const maxSubArray = solution_5;
+// it turns out any bitwise operator coerces an object into `undefined`, so we can use `|r` to save one more character!
+
+var solution_6=(N,r=-Infinity,c=0)=>N.map(n=>{c=n>c+n?n:c+n;r=r>c?r:c})|r
+
+const maxSubArray = solution_6;
 
 // TEST CASES
 
