@@ -55,9 +55,9 @@ function solution_2 (head) {
   return middle;
 }
 
-// one-liner - basically the above
+// one-liner - basically the above, except since we never need to return to the `head`, we can use `h` in place of `c`
 
-var solution_3=(h,c=m=h,o=!0)=>{while(c){m=o?m:m.next;o=!o;c=c.next}return m}
+var solution_3=(h,m=h,o=!0)=>{while(h){m=o?m:m.next;o=!o;h=h.next}return m}
 
 const middleNode = solution_3;
 
