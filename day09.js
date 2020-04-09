@@ -16,9 +16,9 @@ function solution_1 (S, T) {
   return parse(S) === parse(T);
 }
 
-// one-liner - basically the above, with `parse` given as a default value, and `s` processed in array form using .map
+// one-liner - basically the above, with `parse` given as a default value, and `s` processed in array form using .map. also, i use `==` instead of `===` to save 2 characters
 
-var solution_2=(S,T,p=(s,o=[])=>s.split('').map(c=>c==='#'?o.pop():o.push(c))&&o.join(''))=>p(S)===p(T)
+var solution_2=(S,T,p=(s,o=[])=>s.split('').map(c=>c=='#'?o.pop():o.push(c))&&o.join(''))=>p(S)==p(T)
 
 const backspaceCompare = solution_2;
 
