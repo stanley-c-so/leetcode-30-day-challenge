@@ -19,6 +19,8 @@
 
 // ----------
 
+// NOTE: in leetcode, the solution is not written with class syntax. it is written with a constructor function, and all methods are added to the prototype.
+
 class solution_1 {
   constructor () {
     this.stack = [];      // this will hold values like a regular stack
