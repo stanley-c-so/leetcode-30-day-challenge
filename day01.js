@@ -45,6 +45,9 @@ var solution_3=N=>N.reduce((c,n)=>c^n)
 
 const singleNumber = solution_3;
 
+// const specialTest = (...args) => {
+// };
+
 // TEST CASES
 
 const test = require('./_test');

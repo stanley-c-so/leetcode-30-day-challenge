@@ -46,6 +46,9 @@ var solution_6=(N,r=-Infinity,c=0)=>N.map(n=>{c=n>c+n?n:c+n;r=r>c?r:c})|r
 
 const maxSubArray = solution_6;
 
+// const specialTest = (...args) => {
+// };
+
 // TEST CASES
 
 const test = require('./_test');

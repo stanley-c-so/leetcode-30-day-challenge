@@ -73,6 +73,9 @@ var solution_5=(p,c=p[0],a=0)=>p.map(e=>{a+=e>c?e-c:0,c=e})|a
 
 const maxProfit = solution_5;
 
+// const specialTest = (...args) => {
+// };
+
 // TEST CASES
 
 const test = require('./_test');

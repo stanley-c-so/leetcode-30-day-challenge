@@ -78,6 +78,9 @@ class ListNode {
   }
 }
 
+// const specialTest = (...args) => {
+// };
+
 // TEST CASES
 
 const test = require('./_test');

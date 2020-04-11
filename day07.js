@@ -62,6 +62,9 @@ var solution_4=(a,s=new Set(a),c=0)=>a.map(n=>s.has(n+1)?c++:0)|c
 
 const countElements = solution_4;
 
+// const specialTest = (...args) => {
+// };
+
 // TEST CASES
 
 const test = require('./_test');

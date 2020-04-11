@@ -22,6 +22,9 @@ var solution_2=(S,T,p=(s,o=[])=>s.split('').map(c=>c=='#'?o.pop():o.push(c))&&o.
 
 const backspaceCompare = solution_2;
 
+// const specialTest = (...args) => {
+// };
+
 // TEST CASES
 
 const test = require('./_test');

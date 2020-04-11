@@ -44,6 +44,9 @@ var solution_3=(n,s={})=>{while(!s[n])s[n]=1,n=`${n}`.split('').reduce((a,e)=>a+
 
 const isHappy = solution_3;
 
+// const specialTest = (...args) => {
+// };
+
 // TEST CASES
 
 const test = require('./_test');
