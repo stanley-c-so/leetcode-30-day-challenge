@@ -50,7 +50,33 @@ function solution_1 (root) {
 // one-liner - basically, the above, but i swapped the order of the ternary to save 2 characters
 var solution_2=(r,h=r=>{if(!r)return{d:0,L:0,R:0};let z=h(r.left),y=h(r.right),L=r.left?Math.max(z.L,z.R)+1:0,R=r.right?Math.max(y.L,y.R)+1:0;return{d:Math.max(z.d,y.d,L+R),L,R}})=>h(r).d
 
-const diameterOfBinaryTree = solution_2;
+// in this solution, our helper returns the length of the longest path that MUST travel through that node. run that through every node, and eventually you will find the actual longest path!
+function solution_3 (root) {
+
+  // INITIALIZE `maxDiameter` AT 0 - this variable will track the longest path that must go through current node, as we examine every node of the tree
+  let maxDiameter = 0;
+
+  // HELPER FUNCTION - given a node, it returns the length of the longest path that MUST travel through that node. also produces side effect of updating `maxDiameter`
+  function helper(root) {
+    if (!root) return 0;
+    const longestLeft = helper(root.left);
+    const longestRight = helper(root.right);
+    maxDiameter = Math.max(maxDiameter, longestLeft + longestRight);    // side effect: updating `maxDiameter`
+    return Math.max(longestLeft, longestRight) + 1;
+  }
+
+  // KICK START `helper` AND RETURN `maxDiameter` AT THE END
+  helper(root);
+  return maxDiameter;
+}
+
+// thomas luo & alex mok's one-liner
+var solution_4=(r,m=0,h=(r,a=!r?0:h(r.left),b=!r?0:h(r.right))=>!r?0:(m=m>a+b?m:a+b)+1?Math.max(a,b)+1:0)=>h(r)&&m
+
+// my improvement - flipping two of the ternary statements gets rid of two bangs
+var solution_5=(r,m=0,h=(r,L=r?h(r.left):0,R=r?h(r.right):0)=>!r?0:(m=m>L+R?m:L+R)+1?Math.max(L,R)+1:0)=>h(r)&&m
+
+const diameterOfBinaryTree = solution_5;
 
 // NOTE: I developed the following BinaryTree and Batch classes for easy creation of binary trees with arbitrary values.
 // first .insert must END with 'true' argument
