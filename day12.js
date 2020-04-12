@@ -108,9 +108,12 @@ function solution_2 (stones) {
 }
 
 // one-liner
-var solution_3=s=>{while(s.length>1){s.sort((a,b)=>a-b);y=s.pop();x=s.pop();y>x?s.push(y-x):0}return s[0]||0}
+var solution_3=s=>{while(s.length>1){s.sort((a,b)=>a-b);y=s.pop();x=s.pop();y>x?s.push(y-x):0}return s[0]|0}
 
-const lastStoneWeight = solution_3;
+// thomas luo's one-liner - using a for loop - for(;condition;actions) is fewer characters than while(condition){actions}
+var solution_4=s=>{for(;s.length>1;s.sort((a,b)=>a-b),y=s.pop(),x=s.pop(),y>x?s.push(y-x):0);return s[0]|0}
+
+const lastStoneWeight = solution_4;
 
 // const specialTest = (...args) => {
 // };
