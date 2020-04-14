@@ -50,7 +50,13 @@ function solution_1 (s, shift) {
   return sArray.join('');
 }
 
-const stringShift = solution_1;
+// one-liner - similar idea to the above, but duplicate the string `(s+s)` and determine where to slice it based on the value of `trueShift`
+var solution_2=(s,S,l=s.length,T=S.reduce((t,[d,a])=>d?t+a:t-a,0)%l,x=T>0?l-T:-T)=>(s+s).slice(x,x+l)
+
+// thomas luo and alex mok's one-liner (after several iterations) - instead of reducing the total net rotation of the string, just rotate each time
+var solution_3=(s,a)=>a.map(([u,p,x=u?-p:p])=>s=s.slice(x)+s.slice(0,x))&&s
+
+const stringShift = solution_3;
 
 // const specialTest = (...args) => {
 // };
