@@ -78,3 +78,5 @@ input = {
 };
 expected = [undefined, undefined, undefined, -3, undefined, 0, -2];     // in leetcode, the output shows up as `null` instead of `undefined` for methods that have no return
 test(func, input, expected, testNum, lowestTest, highestTest);
+
+// INITIALLY FAILED THESE TEST CASES:

@@ -105,3 +105,5 @@ input = {
 };
 expected = new ListNode(4, 5, 6);
 test(func, input, expected, testNum, lowestTest, highestTest);
+
+// INITIALLY FAILED THESE TEST CASES:

@@ -74,3 +74,5 @@ expected = [
   ['bat'],
 ];
 test(sortedFunc, input, expected.sort(), testNum, lowestTest, highestTest);
+
+// INITIALLY FAILED THESE TEST CASES:

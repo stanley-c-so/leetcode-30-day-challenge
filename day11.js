@@ -134,3 +134,5 @@ input = {
 };
 expected = 3;
 test(func, input, expected, testNum, lowestTest, highestTest);
+
+// INITIALLY FAILED THESE TEST CASES:
