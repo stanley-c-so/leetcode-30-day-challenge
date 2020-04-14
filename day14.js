@@ -54,6 +54,7 @@ function solution_1 (s, shift) {
 var solution_2=(s,S,l=s.length,T=S.reduce((t,[d,a])=>d?t+a:t-a,0)%l,x=T>0?l-T:-T)=>(s+s).slice(x,x+l)
 
 // thomas luo and alex mok's one-liner (after several iterations) - instead of reducing the total net rotation of the string, just rotate each time
+// note: while it passes leetcode's tests, it doesn't handle the situation where the string length is, say, 5, and the rotation amount is, say, 20
 var solution_3=(s,a)=>a.map(([u,p,x=u?-p:p])=>s=s.slice(x)+s.slice(0,x))&&s
 
 const stringShift = solution_3;
