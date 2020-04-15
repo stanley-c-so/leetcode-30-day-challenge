@@ -49,15 +49,12 @@ function solution_1 (arr) {
 }
 
 // one-liner - in the ternary, we can say `d[n] ?` instead of `(n in d) ?` because all existing dictionary entries will be truthy (non-zero)
-
 var solution_2=(a,d={},c=0)=>(a.map(n=>d[n]=d[n]?d[n]+1:1),a.map(n=>d[n+1]?c++:0))&&c
 
 // thomas luo's solution - declare a set right from the start, to skip having to build out the `dict` object
-
 var solution_3=(a,s=new Set(a))=>a.reduce((p,e)=>p+(s.has(e+1)?1:0),0)
 
 // looks like map is still the way to go!
-
 var solution_4=(a,s=new Set(a),c=0)=>a.map(n=>s.has(n+1)?c++:0)|c
 
 const countElements = solution_4;

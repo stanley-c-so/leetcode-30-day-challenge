@@ -30,7 +30,6 @@ function solution_1 (nums) {
 }
 
 // to do it without extra space, initialize `currentNum` at 0 and then run bitwise xor (^ symbol) through all the numbers. the odd number out will remain.
-
 function solution_2 (nums) {
   let currentNum = 0;
   for (const num of nums) {
@@ -39,8 +38,7 @@ function solution_2 (nums) {
   return currentNum;
 }
 
-// one liner - reduce is handy, and you don't even need a starting value since the array is guaranteed to be non-empty
-
+// one liner - .reduce is handy, and you don't even need a starting value since the array is guaranteed to be non-empty
 var solution_3=N=>N.reduce((c,n)=>c^n)
 
 const singleNumber = solution_3;

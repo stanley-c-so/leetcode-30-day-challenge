@@ -47,7 +47,6 @@ function solution_1 (prices) {
 // one-liner - this is basically the same as above. note the giant parens around the callback being fed into .map (chosen for brevity) - it's needed to combine the two sections
 // on either side of the middle comma together into one thing. note that the two sections will never overlap: regardless of the state of `o` (which gets switched when the left section
 // runs), the left section only runs when `i < P.length - 1 && c < P[i + 1]` whereas the right section only runs when `i === P.length - 1 || c > P[i + 1]`.
-
 var solution_2=(P,p=0,o=!8,b=0)=>P.map((c,i)=>((!o&&i<P.length-1&&c<P[i+1]&&(o=!0,b=c)),(o&&(i===P.length-1||c>P[i+1])&&(o=!8,p+=c-b))))&&p
 
 // in this solution, we examine at every price whether it is greater than the previous one. if so, we simply add the marginal increase. this will produce the same result as if
@@ -64,11 +63,9 @@ function solution_3 (prices) {
 }
 
 // thomas luo's solution - this is just the one-liner implementation of the above
-
 var solution_4=(p,c=p[0],a=0)=>p.forEach(e=>{a+=e>c?e-c:0,c=e})|a   // note the use of `|` instead of `||` - by using a bitwise operator, you save a character!
 
 // looks like the best way to go is still to use .map and `|`
-
 var solution_5=(p,c=p[0],a=0)=>p.map(e=>{a+=e>c?e-c:0,c=e})|a
 
 const maxProfit = solution_5;

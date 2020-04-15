@@ -24,7 +24,6 @@
 // ----------
 
 // run through the list and count the number of nodes. then run through the list again, stopping at the middle node, and return it
-
 function solution_1 (head) {
   let currentNode = head;
   let numberOfNodes = 0;
@@ -43,7 +42,6 @@ function solution_1 (head) {
 
 // since there must be at least one node, start `current` and `middle` at the head. run `current` through the list - when the count so far is even, move
 // `middle` forward by one node. once `current` reaches the end, `middle` should be in the middle, so return it
-
 function solution_2 (head) {
   let current = middle = head;
   let odd = true;
@@ -56,7 +54,6 @@ function solution_2 (head) {
 }
 
 // one-liner - basically the above, except since we never need to return to the `head`, we can use `h` in place of `c`
-
 var solution_3=(h,m=h,o=!0)=>{while(h){m=o?m:m.next;o=!o;h=h.next}return m}
 
 const middleNode = solution_3;
