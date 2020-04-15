@@ -47,7 +47,9 @@ function solution_2 (nums) {
 // one-liner - same as above, but using `x` to represent `n.length`, and `n.map(_=>1)` as a faster way to do `Array(nums.length).fill(1)`
 var solution_3=(n,x=n.length,o=n.map(_=>1),L=1)=>{for(i=x-2;i>=0;i--)o[i]*=o[i+1]*n[i+1];for(i=0;i<x;i++){o[i]*=L;L*=n[i]}return o}
 
-// thomas luo's one-liner - similar idea, but `productsToRight` is shifted by 1 (but this is accounted for in the latter half). use `q=>isNaN(q+1)|q` to turn NaN into 1, or leave q alone if it's a number
+// thomas luo's one-liner - similar idea. .reduceRight(...) creates `productsToRight`, and .map(...) creates `productsToLeft` and multiples through.
+// however, note that `productsToRight` is shifted by 1 (but this logic is accounted for in the latter half by performing work on `a[i+1]` instead of `a[i]`).
+// what is `z`? we use `q=>isNaN(q+1)|q` to turn NaN into 1, or leave q alone if it's a number. this turns `undefined` from array out of bounds into 1.
 var solution_4=(n,r=l=1,z=q=>isNaN(q+1)|q)=>n.reduceRight((a,e)=>a.unshift(r*=e)&&a,[]).map((_,i,a)=>(l*=z(n[i-1]))*z(a[i+1]))
 
 // my improvement on thomas luo's one-liner - use `z=q=>q===+q?q:1` to shave 2 characters off `z=q=>isNaN(q+1)|q`
