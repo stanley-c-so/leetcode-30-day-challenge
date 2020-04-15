@@ -79,10 +79,3 @@ expected = [24, 12, 8, 6];
 test(func, input, expected, testNum, lowestTest, highestTest);
 
 // INITIALLY FAILED THESE TEST CASES:
-
-// // Test case 3
-// input = {
-//   ARG_1: `INPUT_HERE`,
-// };
-// expected = `EXPECTED_HERE`;
-// test(func, input, expected, testNum, lowestTest, highestTest);
