@@ -86,7 +86,37 @@ function solution_3 (s) {
 // one-liner - backtracking solution, above
 var solution_4=(s,C={},h=(c=0,i=0,k=`${c}-${i}`)=>k in C?C[k]:c<0?C[k]=!8:i==s.length?C[k]=!c:s[i]=='('?C[k]=h(c+1,i+1):s[i]==')'?C[k]=h(c-1,i+1):C[k]=h(c,i+1)||h(c+1,i+1)||h(c-1,i+1))=>h()
 
-const checkValidString = solution_4;
+// thomas luo's solution using two stacks - one stack tracks the index positions of all '(' and one stack tracks the index positions of all '*'. while iterating through the string, if a ')' is
+// encountered, resolve it immediately (prioritizing `openStack` before `wildStack`). after that phase, now resolve any remaining `openStack` by ensuring that each '(' appears prior to the latest
+// '*' character.
+function solution_5 (s) {
+  const openStack = [];
+  const wildStack = [];
+
+  // PHASE 1: PAIR OFF ALL ')'
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === '(') openStack.push(i);          // if '(', push `i` into `openStack`
+    else if (s[i] === '*') wildStack.push(i);     // if '*', push `i` into `wildStack`
+    else {                                        // else, ')', pair it off with open or wild. must prioritize open, because wild could be anything
+      if (openStack.length) openStack.pop();      // note: no index comparions necessary, since anything inside either stack must have a lower index than current `i`
+      else if (wildStack.length) wildStack.pop();
+      else return false;                          // if no open or wild left, then this string is impossible to build
+    }
+  }
+
+  // PHASE 2: PAIR OFF ALL '('
+  while (openStack.length) {
+    if (!(wildStack.pop() > openStack.pop())) return false;   // pop out and compare the latest index positions. (if `wildStack` runs dry, .pop returns undefined and the comparison is false.)
+  }
+
+  // IF FUNCTION HAS SURVIVED TO THIS POINT, THE STRING IS VALID
+  return true;
+}
+
+// one-liner of thomas' solution
+var solution_6=(s,o=[],w=[])=>{for(i=0;i<s.length;i++){if(s[i]=='(')o.push(i);else if(s[i]=='*')w.push(i);else{if(o.length)o.pop();else if(w.length)w.pop();else return !6}}while(o.length){if(!(w.pop()>o.pop()))return !9}return !0}
+
+const checkValidString = solution_6;
 
 // const specialTest = (...args) => {
 // };
