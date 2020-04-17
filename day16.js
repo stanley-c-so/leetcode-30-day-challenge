@@ -116,7 +116,30 @@ function solution_5 (s) {
 // one-liner of thomas' solution
 var solution_6=(s,o=[],w=[])=>{for(i=0;i<s.length;i++){if(s[i]=='(')o.push(i);else if(s[i]=='*')w.push(i);else{if(o.length)o.pop();else if(w.length)w.pop();else return !6}}while(o.length){if(!(w.pop()>o.pop()))return !9}return !0}
 
-const checkValidString = solution_6;
+// alex mok's solution - track the `low` and `high` of the possible values of `count`. if `high` dips below 0, return false. do not let `low` dip below 0. in the end, return whether `low` is 0.
+function solution_7 (s) {
+  let low = 0;
+  let high = 0;
+  for (const char of s) {
+    if (char === '(') {
+      low++;
+      high++;
+    } else if (char === ')') {
+      if (low) low--;             // do not let `low` dip below 0. only decrement it if it is positive
+      high--;                     // `high` may dip below 0 - we check for that after this if block
+    } else {
+      if (low) low--;
+      high++;
+    }
+    if (high < 0) return false;   // if `high` dips below 0 then even if all '*' were interpreted as '(' you still have too many ')'
+  }
+  return low === 0;               // check whether `low` is exactly 0. it will never dip below 0. if it is above 0, you have too many '('
+}
+
+// one-liner of alex's solution - use .every and `return h>=0` to check that `h` never dips below 0
+var solution_8=(s,l=h=0)=>s.split('').every(e=>{e!='('?l--:l++;e!=')'?h++:h--;l=l<0?0:l;return h>=0})&&!l
+
+const checkValidString = solution_8;
 
 // const specialTest = (...args) => {
 // };
