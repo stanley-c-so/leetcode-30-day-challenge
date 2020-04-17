@@ -102,14 +102,3 @@ expected = 3;
 test(func, input, expected, testNum, lowestTest, highestTest);
 
 // INITIALLY FAILED THESE TEST CASES:
-
-// Test case 3
-input = {
-  grid: [
-    ['1', '0', '1', '1', '1'],
-    ['1', '0', '1', '0', '1'],
-    ['1', '1', '1', '0', '1'],
-  ],
-};
-expected = 1;
-test(func, input, expected, testNum, lowestTest, highestTest);
