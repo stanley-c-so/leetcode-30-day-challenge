@@ -61,7 +61,11 @@ function solution_1 (grid) {
 // one-liner - basically the above
 var solution_2=(g,h=g.length,w=h&&g[0].length,i=0,m=s=>{while(s.length){[r,c]=s.pop();g[r][c]=2;r&&g[r-1][c]==1?s.push([r-1,c]):0;r<h-1&&g[r+1][c]==1?s.push([r+1,c]):0;c&&g[r][c-1]==1?s.push([r,c-1]):0;c<w-1&&g[r][c+1]==1?s.push([r,c+1]):0;}})=>h?g.map((r,R)=>r.map((c,C)=>g[R][C]==1?(i++,m([[R,C]])):0))&&i:0
 
-const numIslands = solution_2;
+// thomas luo's one-liner - using a recursive helper `h` that takes in coordinates and returns if out of bounds or do not hold land, and sets the value to water otherwise.
+// no need to worry about [] input because the only thing that checks .length is the helper, which is only invoked in the inner .map (which would only happen if the input is truly 2D)
+var solution_3=(g,n=0,h=(r,c)=>r>=0&&r<g.length&&c>=0&&c<g[0].length&&g[r][c]==1?(g[r][c]=0,h(r+1,c),h(r-1,c),h(r,c+1),h(r,c-1)):0)=>g.map((e,r)=>e.map((e,c)=>e==1?(n++,h(r,c)):0))&&n
+
+const numIslands = solution_3;
 
 // const specialTest = (...args) => {
 // };
