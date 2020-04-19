@@ -115,7 +115,7 @@ function solution_3 (nums, target) {
 var solution_4=(n,t,l=0,r=n.length-1)=>{while(l<=r){m=parseInt((l+r)/2);M=n[m];if(M==t)return m;(n[l]<=M?(t<M&&t>=n[l]?r=m-1:l=m+1):(t>M&&t<=n[r]?l=m+1:r=m-1))}return -1}
 
 // thomas luo's improvement on my one-liner - (1) using ^ 0 instead of parseInt (coerces to binary?), (2) instead of n[l]<=M, using n[l]>M and swapping the ternary statements
-var solution_5=(n,t,l=0,r=n.length-1)=>{while(l<=r){m=parseInt((l+r)/2);M=n[m];if(M==t)return m;(n[l]<=M?(t<M&&t>=n[l]?r=m-1:l=m+1):(t>M&&t<=n[r]?l=m+1:r=m-1))}return -1}
+var solution_5=(n,t,l=0,r=n.length-1)=>{while(l<=r){m=((l+r)/2)^0;M=n[m];if(M==t)return m;(n[l]>M?(t>M&&t<=n[r]?l=m+1:r=m-1):(t<M&&t>=n[l]?r=m-1:l=m+1))}return -1}
 
 const search = solution_5;
 
