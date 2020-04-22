@@ -30,7 +30,9 @@ function solution_1 (nums, k) {
   return numArrays;
 }
 
-// one-liner - basically the above. curiously, if we used the same variable for both `N` and `n` it still works because of scoping rules
+// one-liner - basically the above. curiously, if we used the same variable for both `N` and `n` it still works because of scoping rules. note that i couldn't use `|a` at the
+// end because of edge case N === [1] and k === 0. since N.map results in an array with a single value, [1], here [1]|0 results in 1, not 0 (coerces to a single character string,
+// and '1'|0 --> 1 whereas if the array were longer, '1,2,3,4,5'|0 --> 0. this is our best guess as to how the implicit coercion works. thanks to thomas luo
 var solution_2=(N,k,f={[k]:1},r=a=0)=>N.map(n=>(r+=n,a+=(f[r]|0),f[r+k]=f[r+k]+1||1))&&a
 
 const subarraySum = solution_2;
