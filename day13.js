@@ -31,6 +31,7 @@ function solution_1 (nums) {
   return record;
 }
 
+// one-liner - basically the above
 var solution_2=(n,R={0:-1},r=d=0)=>n.map((e,i)=>(e?d++:d--,d in R?(x=i-R[d],r=r>x?r:x):R[d]=i))|r
 
 const findMaxLength = solution_2;
