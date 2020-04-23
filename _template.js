@@ -8,7 +8,7 @@ function solution_1 (INPUT_HERE) {
 
 }
 
-const NAME_OF_ALGO_HERE = solution_1;
+const FUNCTION_NAME_HERE = solution_1;
 
 // const specialTest = (...args) => {
 // };
