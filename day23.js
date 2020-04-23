@@ -43,7 +43,21 @@ function solution_1 (m, n) {
 // one-liner - basically the above, but with `L='length'` and `m[L]` to save characters
 var solution_2=(m,n,f=N=>N.toString(2),L='length',b='',s=!0)=>{m=f(m);n=f(n);d=n[L]-m[L];d?m='0'.repeat(d)+m:0;for(i=0;i<n[L];i++){s=m[i]!=n[i]?!8:s;b+=s?n[i]:'0'}return parseInt(b,2)}
 
-const rangeBitwiseAnd = solution_2;
+// this is somebody's solution on leetcode (thomas luo found it). because `n` keeps getting reassigned to `n & n-1`, at first this will force the rightmost digit to be 0, then
+// `n-1` will change the next digit over, so after `n & n-1` again this will make the second digit from the right be 0, etc... the net result is it's basically zeroing out from
+// the right end until it reaches the critical point (when `n` is no longer greater than `m`). if you inspect the value of `n` with each iteration you will see it decreasing by 2,
+// then 4, then 8, then 16... etc. (until it dips below `m`). for this reason this will also have O(log n) time complexity.
+function solution_3 (m, n) {
+  while (n > m) {
+    n = n & n-1;
+  }
+  return n;
+}
+
+// one-liner - basically the above
+var solution_4=(m,n)=>{while(n>m)n=n&n-1;return n}
+
+const rangeBitwiseAnd = solution_4;
 
 // const specialTest = (...args) => {
 // };
