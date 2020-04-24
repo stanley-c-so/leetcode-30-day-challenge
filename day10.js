@@ -45,13 +45,13 @@ const MinStack = solution_1;
 
 const specialTest = (commands, inputs) => {
   const minStack = new MinStack();
-  const output = [];
   const ref = {                                     // this object holds references to the MinStack methods...
     push: minStack.push,
     pop: minStack.pop,
     top: minStack.top,
     getMin: minStack.getMin,
-  }
+  };
+  const output = [];
   for (let i = 0; i < commands.length; i++) {
     output.push(
       ref[commands[i]].bind(minStack)(inputs[i])    // ...but each method still needs to be given `minStack` as its `this` context
