@@ -54,7 +54,7 @@ const specialTest = (commands, inputs) => {
   const output = [];
   for (let i = 0; i < commands.length; i++) {
     output.push(
-      ref[commands[i]].bind(minStack)(inputs[i])    // ...but each method still needs to be given `minStack` as its `this` context
+      ref[commands[i]].bind(minStack)(...inputs[i]) // ...but each method still needs to be given `minStack` as its `this` context
     );
   }
   return output;
@@ -74,7 +74,7 @@ const highestTest = 0 || Infinity;
 // Test case 1
 input = {
   commands: ['push', 'push', 'push', 'getMin', 'pop', 'top', 'getMin'],
-  inputs: [-2, 0, -3, null, null, null, null],
+  inputs: [ [-2], [0], [-3], [null], [null], [null], [null] ],
 };
 expected = [undefined, undefined, undefined, -3, undefined, 0, -2];     // in leetcode, the output shows up as `null` instead of `undefined` for methods that have no return
 test(func, input, expected, testNum, lowestTest, highestTest);
