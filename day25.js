@@ -36,7 +36,15 @@ function solution_1 (nums) {
 // one-liner - basically the above
 var solution_2=(n,i=f=0)=>{while(i<=f){x=i+n[i];f=f>x?f:x;if(f>=n.length-1)return !0;i++}return !8}
 
-const canJump = solution_2;
+// thomas luo's one-liner - use .every to iterate, and make the callback return FALSE if `farthest` (`m`) < `i`, else true, by using 0 and whatever value `m` is for short. there
+// is an edge case, however - when the array is [0], the max value is 0, so the callback would evaluate to 0 which is falsey, so we throw | 1 at the end to make the expression
+// always true as long as `m` is not less than `i`.
+var solution_3=(n,m=0)=>n.every((e,i)=>m<i?0:(m=m>e+i?m:e+i)|1)
+
+// alex mok's one-liner - same as thomas' but no need to initialize `m=0`. since it starts off as undefined, it is false that `m<i`. after that, it will be assigned its usual value.
+var solution_4=(n,m)=>n.every((e,i)=>m<i?0:(m=m>e+i?m:e+i)|1)
+
+const canJump = solution_4;
 
 // const specialTest = (...args) => {
 // };
