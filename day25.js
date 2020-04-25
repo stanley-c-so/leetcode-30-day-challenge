@@ -34,7 +34,7 @@ function solution_1 (nums) {
 }
 
 // one-liner - basically the above
-var solution_2=(n,i=f=0)=>{while(i<=f){f=f>i+n[i]?f:i+n[i];if(f>=n.length-1)return !0;i++}return !8}
+var solution_2=(n,i=f=0)=>{while(i<=f){x=i+n[i];f=f>x?f:x;if(f>=n.length-1)return !0;i++}return !8}
 
 const canJump = solution_2;
 
