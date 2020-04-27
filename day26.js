@@ -42,20 +42,20 @@
 // the bottom left number is the answer.
 
 function solution_1 (text1, text2) {
-  let dp1 = Array(text2.length + 1).fill(0);                // the grid is bounded by 0s above
-  let dp2 = [0];                                            // the grid is bounded by 0s to the left, so the current row should start with 0
+  let dp1 = Array(text2.length + 1).fill(0);          // the grid is bounded by 0s above
+  let dp2 = [0];                                      // the grid is bounded by 0s to the left, so the current row should start with 0
   for (let row = 0; row < text1.length; row++) {
-      for (let col = 0; col < text2.length; col++) {
-          if (text1[row] === text2[col]) {
-              dp2.push(dp1[col] + 1);                       // the index value within the strings is offset relative to the index value of the grid
-          } else {
-              dp2.push(Math.max(dp1[col + 1], dp2[col]));   // ditto
-          }
+    for (let col = 0; col < text2.length; col++) {
+      if (text1[row] === text2[col]) {
+        dp2.push(dp1[col] + 1);                       // the index value within the strings is offset relative to the index value of the grid
+      } else {
+        dp2.push(Math.max(dp1[col + 1], dp2[col]));   // ditto
       }
-      dp1 = dp2;                                            // replace top row with bottom row
-      dp2 = [0];                                            // restart bottom row with new array
+    }
+    dp1 = dp2;                                        // replace top row with bottom row
+    dp2 = [0];                                        // restart bottom row with new array
   }
-  return dp1[dp1.length - 1];                               // return final number of final row (use `dp1`, because `dpi1 = dp2` at end of loop)
+  return dp1[dp1.length - 1];                         // return final number of final row (use `dp1`, because `dpi1 = dp2` at end of loop)
 }
 
 // one-liner - basically the above
