@@ -38,8 +38,7 @@
 function solution_1 (arr) {
   const dict = {};
   for (const num of arr) {
-    if (!(num in dict)) dict[num] = 0;
-    dict[num]++;
+    dict[num] = dict[num] + 1 || 1;
   }
   let count = 0;
   for (const num of arr) {
