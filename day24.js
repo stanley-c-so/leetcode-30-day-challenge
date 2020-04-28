@@ -65,10 +65,9 @@ class solution_1 {
           this.head = null;
           this.tail = null;
         } else {
-          const newHead = this.head.next;
-          this.head.next = null;
-          newHead.prev = null;
-          this.head = newHead;
+          this.head = this.head.next;
+          this.head.prev = null;
+          node.next = null;
         }
         this.length--;
         return node;
