@@ -75,8 +75,8 @@ class solution_1 {
       }
       disconnect (node) {                                       // NO NEED TO CHANGE LENGTH. ALSO, IT DOESN'T MATTER IF NODE IS NOT ACTUALLY IN THE LIST
         if (node === this.head && node === this.tail) return;   // edge case: this node was head and tail - no action needed
-        if (node === this.head) this.head = node.next;          // edge case: this node was head only
-        if (node === this.tail) this.tail = node.prev;          // edge case: this node was tail only
+        if (node === this.head) this.head = node.next;          // edge case: this node was head only: set new head
+        if (node === this.tail) this.tail = node.prev;          // edge case: this node was tail only: set new tail
         if (node.prev) node.prev.next = node.next;              // connects prev node (if any) to whatever is next (whether node or null)
         if (node.next) node.next.prev = node.prev;              // connects next node (if any) to whatever is prev (whether node or null)
         node.next = null;                                       // disconnects this node
