@@ -178,7 +178,14 @@ class solution_3{constructor(n){this.q=new Set();this.s=new Set();n.map(e=>this.
 // my improvement on thomas' one-liner - basically using a variable in place of `this`
 class solution_4{constructor(n,t=this){t.q=new Set();t.s=new Set();n.map(e=>t.add(e))}add(v,t=this){t.s.has(v)?0:t.q.has(v)?(t.s.add(v),t.q.delete(v)):t.q.add(v)}showFirstUnique(){for(const num of this.q)return num;return -1}}
 
-const FirstUnique = solution_4;
+// alex mok's one-liner - instead of "promoting" a value from `q` to `s` when it is seen twice, we can simplify the logic by putting it in `s` immediately. also, we can shorten
+// the code by using the spread operator on the set's .values() and grabbing the first element to look at the head of the set.
+class solution_5{constructor(n){this.q=new Set();this.s=new Set();n.map(e=>this.add(e))}add(v){this.s.has(v)?this.q.delete(v):this.q.add(v);this.s.add(v)}showFirstUnique=()=>[...this.q.values()][0]||-1}
+
+// my improvement on alex's one-liner - applying `t=this`, and also using the spread operator directly on the set instead of using calling Set.values() first
+class solution_6{constructor(n,t=this){t.q=new Set();t.s=new Set();n.map(e=>t.add(e))}add(v,t=this){t.s.has(v)?t.q.delete(v):t.q.add(v);t.s.add(v)}showFirstUnique=()=>[...this.q][0]||-1}
+
+const FirstUnique = solution_6;
 
 const specialTest = (nums, commands, inputs) => {
   const firstUnique = new FirstUnique(nums);
