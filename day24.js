@@ -84,7 +84,6 @@ class solution_1 {
       }
       moveToTail (node) {                                       // similar to enqueue, but WILL NOT CHANGE LENGTH
         if (node === this.tail) return;                         // edge case: node already is tail - no action needed
-        if (node === this.head) this.head = node.next;          // edge case: node is head, so set new head
         this.disconnect(node);
         this.tail.next = node;
         node.prev = this.tail;
