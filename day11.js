@@ -75,7 +75,7 @@ function solution_3 (root) {
 var solution_4=(r,m=0,h=(r,a=!r?0:h(r.left),b=!r?0:h(r.right))=>!r?0:(m=m>a+b?m:a+b)+1?Math.max(a,b)+1:0)=>h(r)&&m
 
 // my improvement - flipping the ternary statements gets rid of three bangs
-var solution_5=(r,m=0,h=(r,L=r&&h(r.left),R=r&&h(r.right))=>r?(m=m>L+R?m:L+R)+1?Math.max(L,R)+1:0:0)=>h(r)&&m
+var solution_5=(r,m=0,h=(r,L=r&&h(r.left),R=r&&h(r.right))=>r?(m=m>L+R?m:L+R)*0+Math.max(L,R)+1:0)=>h(r)&&m
 
 const diameterOfBinaryTree = solution_5;
 
