@@ -40,7 +40,7 @@ function solution_1 (root) {
       diameter: Math.max(recurseLeft.diameter, recurseRight.diameter, bestLeft + bestRight),    // diameter is the biggest of: children's diameter, or your `bestLeft + bestRight`
       bestLeft,
       bestRight,
-    }
+    };
   }
 
   // ...THAT WE INVOKE ON `root`, SO WE CAN PULL OUT THE `diameter` PROPERTY AND RETURN IT
