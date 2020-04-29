@@ -84,8 +84,8 @@ const diameterOfBinaryTree = solution_5;
 // ...except the last .insert which must START with 'true' argument
 
 class BinaryTree {
-  constructor (value) {
-    this.value = value;
+  constructor (val) {
+    this.val = val;
     this.left = null;
     this.right = null;
   }
