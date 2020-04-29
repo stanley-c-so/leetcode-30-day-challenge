@@ -96,7 +96,8 @@ function solution_2 (root) {
 }
 
 // one-liner - basically the above, but with flipped ternaries to get rid of bangs, and `...*0+...` whenever the left part may be 0 or not, but needs to be ignored
-var solution_3=(r,I=m=-Infinity,h=(r,L=r&&h(r.left),R=r&&h(r.right))=>r?(m=Math.max(m,r.val+(L>0?L:0)+(R>0?R:0)))*0+r.val+Math.max(0,L,R):I)=>h(r)*0+m
+// var solution_3=(r,I=m=-Infinity,h=(r,L=r&&h(r.left),R=r&&h(r.right))=>r?(m=Math.max(m,r.val+(L>0?L:0)+(R>0?R:0)))*0+r.val+Math.max(0,L,R):I)=>h(r)*0+m
+var solution_3=(r,I=-Infinity,M=Math.max,m=I,h=(r,L=r&&h(r.left),R=r&&h(r.right))=>r?(m=M(m,r.val+M(L,0)+M(R,0)))*0+r.val+M(0,L,R):I)=>h(r)*0+m
 
 const maxPathSum = solution_3;
 
