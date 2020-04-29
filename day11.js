@@ -56,7 +56,8 @@ function solution_3 (root) {
   // INITIALIZE `maxDiameter` AT 0 - this variable will track the longest path that must go through current node, as we examine every node of the tree
   let maxDiameter = 0;
 
-  // HELPER FUNCTION - given a node, it returns the length of the longest path that MUST travel through that node. also produces side effect of updating `maxDiameter`
+  // HELPER FUNCTION - given a node, it returns the length of the longest path that MUST travel up to that node, but then stop. it cannot go through the other side.
+  // note: this function also produces side effect of updating `maxDiameter`
   function helper(root) {
     if (!root) return 0;
     const longestLeft = helper(root.left);
