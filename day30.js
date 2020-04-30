@@ -126,10 +126,23 @@ function solution_2 (root, arr) {
 
 var solution_3=(r,a,l='length',A=a[l]-1,L='left',R='right',f=(r,s=[[r,1]])=>{while(s[l]){[n,i]=s.pop();if(n[L]&&n[L].val==a[i]){if(i==A&&!n[L][L]&&!n[L][R])return !0;s.push([n[L],i+1])}if(n[R]&&n[R].val==a[i]){if(i==A&&!n[R][L]&&!n[R][R])return !0;s.push([n[R],i+1])}}return !8})=>a[0]!=r.val?!8:A<1?!r[L]&&!r[R]:f(r)
 
-// thomas luo's recursive solution (slightly refactored):
+// we can make the stack solution less verbose with tighter logic:
+
 function solution_4 (root, arr) {
+  const stack = [[root, 0]];                                                // initialize the stack (`i` is now CURRENT index along the array)
+  while (stack.length) {
+    const [node, i] = stack.pop();
+    if (!node || node.val !== arr[i]) continue;                             // this nicely catches all "false" cases
+    if (!node.left && !node.right && i === arr.length - 1) return true;     // this nicely catches all the true cases
+    stack.push([node.left, i + 1], [node.right, i + 1])                     // push both children (we will validate when we pop out)
+  }
+  return false;                                                             // return false if the `stack` runs dry
+}
+
+// thomas luo's recursive solution (slightly refactored):
+function solution_5 (root, arr) {
   function helper (root, pos = 0) {
-    if (!root || root.val !== arr[pos]) return false;                       // this nicely catches all edge cases
+    if (!root || root.val !== arr[pos]) return false;                       // this nicely catches all "false" cases
     if (!root.left && !root.right && pos === arr.length - 1) return true;   // this nicely catches all the true cases
     return helper(root.left, pos + 1) || helper(root.right, pos + 1);
   }
@@ -137,15 +150,15 @@ function solution_4 (root, arr) {
 }
 
 // thomas luo's one-liner (works on leetcode, but in node it doesn't seem to be coercing from 0 or 1 to boolean)
-var solution_5=(r,a,h=(t,a,p=0,l=t&&t.left,r=t&&t.right)=>!t||t.val!=a[p]?0:!l&&!r&&p==a.length-1?1:h(l,a,p+1)|h(r,a,p+1))=>h(r,a)
+var solution_6=(r,a,h=(t,a,p=0,l=t&&t.left,r=t&&t.right)=>!t||t.val!=a[p]?0:!l&&!r&&p==a.length-1?1:h(l,a,p+1)|h(r,a,p+1))=>h(r,a)
 
 // thomas luo's one-liner fixed for node: converted a 0 to !8, a 1 to !0, and a | to ||
-var solution_6=(r,a,h=(t,a,p=0,l=t&&t.left,r=t&&t.right)=>!t||t.val!=a[p]?!8:!l&&!r&&p==a.length-1?!0:h(l,a,p+1)||h(r,a,p+1))=>h(r,a)
+var solution_7=(r,a,h=(t,a,p=0,l=t&&t.left,r=t&&t.right)=>!t||t.val!=a[p]?!8:!l&&!r&&p==a.length-1?!0:h(l,a,p+1)||h(r,a,p+1))=>h(r,a)
 
 // my improvement on thomas' solution:
-var solution_7=(r,a,h=(t,p=0,l=t&&t.left,r=t&&t.right)=>!t||t.val!=a[p]?!8:!l&&!r&&p==a.length-1?!0:h(l,p+1)||h(r,p+1))=>h(r)
+var solution_8=(r,a,h=(t,p=0,l=t&&t.left,r=t&&t.right)=>!t||t.val!=a[p]?!8:!l&&!r&&p==a.length-1?!0:h(l,p+1)||h(r,p+1))=>h(r)
 
-const isValidSequence = solution_7;
+const isValidSequence = solution_8;
 
 // NOTE: I developed the following BinaryTree and Batch classes for easy creation of binary trees with arbitrary values.
 // first .insert must END with 'true' argument
