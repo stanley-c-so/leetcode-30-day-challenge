@@ -155,7 +155,7 @@ var solution_6=(r,a,h=(t,a,p=0,l=t&&t.left,r=t&&t.right)=>!t||t.val!=a[p]?0:!l&&
 // thomas luo's one-liner fixed for node: converted a 0 to !8, a 1 to !0, and a | to ||
 var solution_7=(r,a,h=(t,a,p=0,l=t&&t.left,r=t&&t.right)=>!t||t.val!=a[p]?!8:!l&&!r&&p==a.length-1?!0:h(l,a,p+1)||h(r,a,p+1))=>h(r,a)
 
-// my improvement on thomas' solution:
+// my improvement on thomas' solution (removing the unnecessary `a` in the function signature of the helper `h` function):
 var solution_8=(r,a,h=(t,p=0,l=t&&t.left,r=t&&t.right)=>!t||t.val!=a[p]?!8:!l&&!r&&p==a.length-1?!0:h(l,p+1)||h(r,p+1))=>h(r)
 
 const isValidSequence = solution_8;
