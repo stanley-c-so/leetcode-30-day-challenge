@@ -7,3 +7,5 @@ All submissions were made and accepted within the 24 hours of the release of eac
 All solutions were tested with my own custom test suite which requires no installations - everything can be run directly on Node. Initially, any examples within the problems constituted my tests. If I then failed any tests on LeetCode after submitting an attempted solution (or a code golf solution), I would subsequently include that test as well.
 
 Many thanks to my friends and colleagues Thomas Luo [@tluo9713](https://github.com/tluo9713) and Alex Mok [@MistuhMok](https://github.com/MistuhMok) who often times had much more insightful and clever solutions than I did.
+
+UPDATE: LeetCode has released a "31-Day LeetCoding Challenge" for May 2020! Follow my progress here: https://github.com/stanley-c-so/leetcode-31-day-challenge
