@@ -1,6 +1,6 @@
 ![](./readme.png)
 
-This repo contains my work on the April 2020 "30-Day LeetCoding Challenge" which was released during the COVID-19 pandemic.
+This repo contains my work on the "April LeetCoding Challenge" which was released during the 2020 COVID-19 pandemic.
 
 All submissions were made and accepted within the 24 hours of the release of each problem. For each problem, I have my own regular solution (or several), as well as my attempt to write the solution in one line, in as few characters as possible ('code golf').
 
@@ -8,4 +8,4 @@ All solutions were tested with my own custom test suite which requires no instal
 
 Many thanks to my friends and colleagues Thomas Luo [@tluo9713](https://github.com/tluo9713) and Alex Mok [@MistuhMok](https://github.com/MistuhMok) who often times had much more insightful and clever solutions than I did.
 
-UPDATE: LeetCode has released a "31-Day LeetCoding Challenge" for May 2020! Follow my progress here: https://github.com/stanley-c-so/leetcode-31-day-challenge
+UPDATE: LeetCode has released a "May LeetCoding Challenge"! Follow my progress here: https://github.com/stanley-c-so/leetcode-may-2020-challenge
